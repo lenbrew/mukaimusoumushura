@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>無界無双無修羅</title>
+    <script>
+        // 自動檢測語言，如果是日文環境，跳轉到日文版
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('ja') && !window.location.search.includes('lang=zh')) {
+            window.location.href = "index-jp.html";
+        }
+    </script>
+    <style>
+        body { 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; /* 圖片靠上排列，預留空間給連結 */
+            align-items: center; 
+            min-height: 100vh; 
+            background-color: #333333; 
+            font-family: sans-serif;
+        }
+
+/* 導覽列容器 */
+    .nav-bar {
+        display: flex;
+        justify-content: center;
+        gap: 20px;       /* 按鈕之間的間距 */
+        padding: 20px;
+        order: 2;        /* 確保排在圖片下方 */
+    }
+
+    /* 導覽列按鈕樣式 */
+    .nav-link {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.15);
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: background 0.3s; /* 讓滑鼠移過時有平滑變色效果 */
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.3); /* 滑鼠懸停時變亮 */
+    }
+
+        /* 圖片區域設定 */
+        .image-container {
+            order: 1; /* 強制圖片排在上面 */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+        }
+        
+        /* 縮圖樣式：這段會讓圖被縮小適應螢幕 */
+        .thumbnail { 
+            max-width: 90%; /* 手機上縮圖不要貼邊 */
+            max-height: 80vh; /* 縮圖高度最高 80% 視窗高度 */
+            cursor: zoom-in; /* 游標變成放大鏡，提示可點擊 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* 加上一點陰影凸顯圖片 */
+        }
+
+        /* 放大後的燈箱效果（Lightbox） */
+        .lightbox {
+            display: none; /* 預設隱藏 */
+            position: fixed;
+            z-index: 999; /* 確保在最上層 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9); /* 黑底半透明 */
+            justify-content: center;
+            align-items: flex-start; /* 讓放大圖片從頂部開始排 */
+            overflow-y: auto; /* 核心：當圖片超過視窗高度時，允許垂直捲動 */
+            cursor: zoom-out; /* 游標變成縮小鏡，提示可關閉 */
+        }
+        
+        .lightbox.active {
+            display: flex; /* 顯示燈箱 */
+        }
+        
+        /* 放大圖片的樣式：這段會展示圖片原始大小 */
+        .lightbox-img {
+            max-width: 100%; /* 寬度不超過螢幕 */
+            height: auto; /* 高度自動 */
+            padding: 20px 0; /* 頂部和底部留白 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="image/sell_sheet_JP.jpg" alt="無界無双無修羅" class="thumbnail" id="sellSheetImg">
+    </div>
+
+<nav class="nav-bar">
+        <a href="rules.html" class="nav-link">ゲームのルール</a>
+        
+        <a href="index.html" class="nav-link">中文顯示 (View in Traditional Chinese)</a>
+    </nav>
+
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="無界無双無修羅" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <script>
+        // JavaScript 處理點擊放大邏輯
+        
+        const thumbnail = document.getElementById('sellSheetImg');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+
+        // 1. 當點擊縮圖時
+        thumbnail.addEventListener('click', () => {
+            lightboxImg.src = thumbnail.src; // 將縮圖的 src 複製給放大圖
+            lightbox.classList.add('active'); // 顯示燈箱
+            document.body.style.overflow = 'hidden'; // 鎖定主頁面捲動
+        });
+
+        // 2. 當點擊燈箱（全螢幕視窗）時
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active'); // 隱藏燈箱
+            document.body.style.overflow = ''; // 恢復主頁面捲動
+        });
+    </script>
+</body>
+</html>
