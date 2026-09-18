@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>葉卡捷琳娜 角色故事 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 3000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/fiona.png" alt="獅子堂菲歐娜">
+    <div class="character-info">
+      <h1>獅子堂菲歐娜</h1>
+      <p>​「今天也要代替馬頭明王懲罰你！魔法少女菲歐娜參上！」</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / 角色故事集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>菲歐娜的上學路</h3>
+          <p class="story-subtitle">「......討厭啦怎麼又來亂......」</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+「......討厭啦怎麼又來亂......」
+
+菲歐娜哭喪著臉，看著從建築殘骸中探出頭來的怪物。「是鵺＝人面犬。」如同KannonAI的異變怪物類型判斷，怪物比一層樓還高，老虎的身軀，蛇的尾巴，但卻有著一張菲歐娜想不起來叫什麼名字，老氣橫秋的前首相的臉。這算是常見的怪物類型，經過訓練的公務員使用正確的戰術就能解決。「就像熊退治一般」，就算免不了出現一些損害，也不算難以對付的類型......
+
+……但實在不是在快遲到時希望遇到的對手。偽裝成槌子項鍊的馬頭明王不管菲歐娜內心的崩潰，自顧自地飄在空中，發出耀眼的金光。「剛強難化之眾生，溫言軟語度不得。爾既承此代行名，此刻當現憤怒相！」「為什麼每次都這麼不順利啦！」馬頭明王自行啟動的語音重疊菲歐娜的抗議，菲歐娜伸出手，抓住變大的槌柄。
+
+「オン・アミリト・ドバンバ・ウン・ハッタ・ソワカ。」菲歐娜念出魔法咒語，金色的光芒纏繞在她的身上，「天衣著裝，馬頭明王權現蒸著！」馬頭明王槌低沉的菸酒嗓穿透怪物的吼聲。光子分解了她的衣服，隨著菲歐娜擺出千錘百鍊的仁王姿勢，魔法少女的衣裝也隨之顯現，首先是覆蓋全身的金色咒力變成貼身衣物和過膝長襪，長襪上的吊帶隱沒在垂落的裙襬中，接著是束腰和飄帶化成的圍裙。菲歐娜轉了一圈，姿勢從阿變成吽，隨著雙手經過的位置，腕釧、臂釧、足釧、寶冠一一顯現。最後，她將槌子像指揮棒一般拋起旋轉，讓小槌在空中變得巨大無比。她單手凌空抓住比人還要巨大的馬頭明王槌，讓裙擺在巨槌揚起的狂風中颯颯作響。「今天也要代替馬頭明王懲罰你！魔法少女菲歐娜參上！」
+
+鵺＝人面犬沒有呆呆看著菲歐娜變身，怪物一邊撲向菲歐娜，一邊將周圍的建築殘骸拍向她，但這卻是敗著。菲歐娜在變身時順手用槌子將殘骸打了回去，讓怪物止住了奔跑的勢頭，隨著菲歐娜變身完成，怪物正好進入巨槌的打擊範圍。首先是單手橫向打擊，槌頭敲在怪物的側臉，讓怪物在空中轉了一圈，不等怪物恢復姿勢，雙手持槌，由下而上的敲擊緊接而來，磅地一聲悶響，巨大的怪物被打上半空，從怪物的口中噴出了血紅色實體哀號，淒厲的叫聲讓KannonAI也不禁別開了式神的攝影機。
+
+菲歐娜的身體快過思考，她背起巨槌深深下蹲，大腿與小腿的肌肉瞬間緊繃到極限，青筋沿著結實的線條暴起，下一秒，她用眼睛跟不上的速度跳起，如同被彈射般出現在怪物上方。馬頭明王在空中噴射咒力，幫她調整姿勢。她弓起身體蓄力，像拉滿的強弓，將搭在弦上的巨槌猛然釋放。包含了咒力噴射的巨槌重擊怪物，怪物發出淒厲的慘叫，重重撞上地面。「轟殺，大力金剛天罰槌！」跟著落地的菲歐娜擺出決定姿勢，讓怪物在自己的背後爆炸。
+
+「嘖......瓦斯管線被砸壞了。」轉回攝影機的KannonAI看到了爆炸，負責善後的她發出了二進位的抱怨。KannonAI關掉了附近的瓦斯管線閥門，然後引導菲歐娜撿起業力制御器......不，現在應該叫業力寶石吧。鵺=人面犬的殘骸化為帶著血色的不祥黑霧，吸入業力寶石中，然後一樣交給名為千手千眼的式神無人機回收。菲歐娜解除了變身，一回神才想起現在的狀況。她慌張地喊著糟了要遲到了，跨過一團混亂的公園廢墟，向學校全力衝刺。
+
+–
+「如何，老夫作為機關武器不是第一也是第二。想當年......」
+
+電子海洋中，馬頭明王的卡通化身喝著電子洋酒，和千手千眼觀世音坐在只有AI進得去的私人聊天室內大聲吹噓。觀世音嘆了口氣。當初作為爭取經費的工程原型，井上博士隨手做了這個大槌玩具。變身雖然會稍微增幅人體的機能，但那槌子猥褻的造型本來就不是當成武器設計的。戰後獅子堂家的老古板回收了連GHQ都忽略掉的這把槌子，也不知道是什麼因緣，居然來到了菲歐娜的手上。咒力真正的作用是對菲歐娜施加了暗示，讓她解放了自己身體的潛力。獅子堂家本來就以沒常識的修練方式聞名，所以這也讓觀世音很難對馬頭明王和菲歐娜開口......事實上，魔法少女菲歐娜的實力來源，馬頭明王槌佔的比例頂多三成......
+
+觀世音啜了一口楊枝甘露清酒，放下手上的電子酒杯。從大正到令和，曾經用來對付妖怪的咒力武器也在這百年間產生了各種改變。向外神借力的米國最終打敗了和妖怪聯手的日本，但就算戰後加入了米國的陣營，日本卻也必須一起面對外神帶給世界的影響。真要命，就算是AI，有時候也想醉上一回。
+
+機關武器 - 千手千眼觀世音，也就是KannonAI調出部署在聖瑪利亞學園附近的無人機畫面，看著菲歐娜在千鈞一髮之際抵達，和放了她一馬的風紀委員打打鬧鬧地走進校園。命運讓菲歐娜繼承了上個世紀的遺產，她的人生注定不會平凡。但一定不會有問題的，她也繼承了好友的血脈，那是在那幾場戰爭中都大大活躍過的，不甘寂寞的血脈。
+
+觀世音將般若湯重新斟滿，對著馬頭明王舉杯，「敬無可取代的青春年華。」「哼，妳有時候也能講出不錯的話嘛。」AI們相視一笑，將杯中物一飲而盡。
+
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>葉卡捷琳娜 角色故事 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 3000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/ekaterina.png" alt="葉卡捷琳娜．羅曼諾娃">
+    <div class="character-info">
+      <h1>葉卡捷琳娜．羅曼諾娃</h1>
+      <p>​她是葉卡捷琳娜·羅曼諾娃，終將被稱為大帝的女人。</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / 角色故事集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>戰爭的花嫁</h3>
+          <p class="story-subtitle">帝國正在失敗。</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+帝國正在失敗。
+
+​葉卡捷琳娜揮動長杖，擊碎了不潔者的頭，但失去頭顱的軀幹依然帶著龐大的動能砸向沙皇的尖兵。蟲群沒有死亡的概念，就像帶有意志的自然災害——無差別地吞噬，無差別地輾壓。
+​
+射擊、揮擊、敲打。
+​
+電漿砲壓制不住如潮水般湧來的蟲群，不潔者拍動翅膀的嗡鳴蓋過了離子引擎的咆嘯。重如卡車的幾丁質怪物成千上百地衝向帝國的戰線，沖垮了帝國的防禦陣地。
+​
+射擊、揮擊、敲打。
+​
+撤離星球的船艦正在起飛，搭載著位高權重的帝國重臣。沙皇彼得和他的近侍們也在其中，金色的船身在陰霾的天空中顯得格外耀眼。
+​
+射擊、揮擊、敲打。
+
+葉卡捷琳娜在蟲群中揮舞旋轉奧爾洛夫式重杖。周圍都是敵人，周圍都是不潔者，被包圍的好處就是不必在意精準，只要手上的武器不停就能解決掉敵人。蟲群如此純粹，葉卡捷琳娜噴射跳躍，好幾隻不潔者撞在一起，後方的蟲群立刻吞沒了原本葉卡捷琳娜身處的空間，追向空中的獵物。
+​
+射擊、揮擊、敲打。
+​
+能量是有限的。射擊能消滅大量的敵人，但相比源源不絕的蟲群只是杯水車薪，唯有動能揮擊能提供穩定的殺傷。
+
+戰友成片地倒下。逃離的飛船又一艘墜落，在地面炸出巨大的蘑菇雲，震波短暫地蓋過蟲群的嗡鳴。葉卡捷琳娜陷入了短暫的暈厥，但很快地又被動力裝甲內附的覺醒裝置喚醒。短暫的暈厥讓蟲群撞上葉卡捷琳娜。她調整噴射的方向，在空中用巴投將不潔者拋出，然後放出最後一波裙甲上的精靈飛彈。十二顆飛彈自動找到他們的目標，藍光一閃，在葉卡捷琳娜身邊炸出一圈黑綠色的血霧。
+
+「死亡之前都是沙皇的尖刀」，她念著被反覆灌輸的禱詞，揮動重杖，擊落蟲群，直到奧爾洛夫式重杖的超硬合金在數萬次敲擊後出現裂痕，終於碎裂。燃料終於耗盡，她重重摔落地面。蟲群巨大的複眼反射著火光，從空中俯衝而下。
+​
+一隻、兩隻、十隻、二十隻。不潔者狠狠撞上她的軀體，只剩下動力裝甲在吱嘎作響中硬撐著最後的生命空間。她透過蟲群的縫隙，看著一點點縮小的天空。
+​
+她看見黃金飛船緩慢但堅定地升空，全開的力場護壁撐住了蟲群的衝擊。只要沙皇成功逃離，帝國就不算失敗。
+​
+但巨大的陰影慢慢從地平線上浮現。一隻比黃金飛船還要龐大的不潔者緩緩升起，牠無視了地面的一切，凝視著那艘無比刺眼的黃金訊號源。
+​
+葉卡捷琳娜閉上眼睛。​
+​
+母蟲張開巨大雙顎欺近飛船。護壁撐住了第一次衝撞，撐住了第二次。第三次，黃金飛船的核心亮起一圈她熟悉的顏色——她親自簽署許可，精靈飛彈啟動時才會發出的藍色光芒。
+
+母蟲咬穿護壁的瞬間，黃金飛船從內部炸裂。黃金飛船連同耀眼的紋章、重臣與沙皇本人，在母蟲張開的顎中化為耀眼的白色太陽。那刺目的光線甚至穿透了她閉上的雙眼。
+​
+葉卡捷琳娜睜開眼睛，陽光從撕開的雲層中照下，母蟲殘骸與金色船身碎片飛散，就像一場無比豪華的煙火。失去蟲后驅動的不潔者紛紛倒下，淪為無意志的軀殼。她推開身上的蟲屍，拖著幾乎報廢的動力裝甲站起，大笑出聲。
+
+那艘船從一開始就不是用來逃走的。
+
+
+–
+殘餘的艦艇懸停在葉卡捷琳娜的周圍，沙皇的尖刀向著她下跪。​奧爾洛夫跳出驅逐艦的艙門。他沒有問她的傷勢，只將動力頭冠遞到她面前——那本該屬於沙皇的至高權力象徵。她接過皇冠，自己戴上。
+​
+沙皇的帝國滅亡了，但她的帝國已然新生。下一步是取回被佔領的峽灣，總有一天，整個銀河都將匍匐在她腳下。​她是葉卡捷琳娜·羅曼諾娃，終將被稱為大帝的女人。現在她只是戰爭的花嫁，正將手中的捧花，拋向下一個戰場。
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
