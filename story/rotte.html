@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>路忒．薩路基 角色故事 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 3000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/rotte.png" alt="路忒．薩路基">
+    <div class="character-info">
+      <h1>路忒．薩路基</h1>
+      <p>​狗拳大師，種族是狗頭人── 如果你有興趣的話，品種可能是薩路基犬。</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / 角色故事集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>女僕露忒的日常</h3>
+<p>眼魔康拉德·馮·奧根費爾斯(Konrad von Augenfels)瞇上眼睛嘆了口氣。</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+眼魔康拉德·馮·奧根費爾斯(Konrad von Augenfels)瞇上眼睛嘆了口氣。「怎麼又來了。」他揮動他的眼睛觸鬚，就在冒險者們打起十二萬分精神準備對應襲擊而來的魔法時，所有人都莫名其妙地吃了一記攻擊，往門外飛了出去。
+
+門內，康拉德戴上耳機麥克風，把「球評」的牌子擺在桌上，然後從堆成小山的雜物堆中找出服務鈴，用觸手叮叮敲響。「各位觀眾朋友，大家好，歡迎收看康拉德的地下城攻略實況，我是康拉德·馮·奧根費爾斯，在新宿地下城為各位轉播女僕露忒對戰冒險者隊伍銀狼之牙。」
+
+眼魔清了清喉嚨。門外，冒險者們爬起身。魔法師因為剛剛的一擊正在吐血，牧師趕緊施放法術回復。戰士掄起長劍，看著站在眼前的敵人。穿著女僕裝的犬系獸人一個旋身跳起，在原地跳躍著擺出架式。剛剛她一個人把我們全部擊飛嗎？戰士流下了冷汗。
+
+「如各位所知，銀狼之牙是最近突飛猛進的冒險者隊伍，升到銀級的這隻隊伍終於下定決心，前來攻略長期占據地下城寶物庫的邪惡眼魔康拉德，但他們沒想到的是，阻擋在他們面前不是邪惡的眼魔本人，而是屈服在康拉德淫威之下的前冒險者獸人露忒。哦哦，露忒那冰冷的殺氣連無辜的眼魔主持人都感到不寒而慄......」
+
+「說著說著戰鬥就開始了，牧師治療的同時法師開始唸咒，戰士擋在法師前方，盜賊從戰士的影子中衝出，也一起投出手上的匕首，真不愧是銀級隊伍，戰術配合的完美無瑕。但露忒的對應出乎意料，她直接向後倒，躺在地上閃過匕首，也閃過停不下來的盜賊。這就是最近知名度漸漸提升的地躺拳－在地下城特別好用的拳法，穿著女僕裝用起來也是帥氣無比。如果大家感到興趣的話，露忒的內褲是白——」
+
+康拉德接住筆直飛向他的匕首，麥克風發出刺耳的嗡鳴——
+
+「......咳咳，各位觀眾朋友，露忒閃過盜賊的同時，用手上的牽繩纏住盜賊的腳，隨著翻身站起，順勢將原本就瘦小的盜賊拋向戰士，兩個人相親相愛地撞成一團——親到了，戰士和盜賊絕對親到了。唉呀露忒居然一點都不在意戰Ｘ盜的卿卿我我，毫不留情地踩在盜賊的背上衝向法師，但法師的咒語也快唸完了。要來不及了，很顯然就是剛剛浪費時間丟匕首攻擊無辜眼魔的錯！」
+
+「不對，女僕露忒使出了咆嘯——成功了，法師的施法被中斷了。這是她今年第97次使用這招，打擊率目前是.240，算是聯盟平均水準。唉呀怎麼把人往我這丟——」
+
+
+
+「...我親愛的主人，界外球是不長眼睛的。」 露忒撥了撥亂掉的頭髮，用她最完美的笑容，向康拉德行了個標準的提裙禮。康拉德看著被法師撞壞的轉播台，轉過身，所有眼睛看向瑟瑟發抖的牧師，在身前摩擦著觸手。
+
+「我說......這張桌子還蠻貴的，你們可以幫忙出一點修理費嗎？」
+
+–
+露忒把像漫畫般頭上冒著星星的銀狼之牙成員用推車放到地下城的安全區，然後拍掉身上的灰塵。地躺拳倒地的動作很多，所以制服選了耐髒的顏色，但在安全區的燈光下看起來還是不夠體面。待會兒還得送主人的稿件到另一邊的出版社，還是先換件乾淨的衣服再出發吧。是說都什麼年代了，魔法網路和光纖網路怎麼還不能互通啊?
+
+大融合災難已經過去好久了。劍與魔法的世界，槍砲與彈藥的世界，兩個世界的地下城因為不明原因融合在一起。不同位面的構造互相侵軋擠壓，造成了巨大的災害和悲劇。但隨著時間經過，人們也慢慢地接受了現狀。地下城的兩端連接著字面意義上的新世界，這讓探索地城產生了完全不同的重量。融合和崩解依然是現在進行式，探索地下城比起以往更加危險，但同時，兩個世界的文化也在這裡碰撞出燦爛的火花。比起前往新世界，從地下城中帶回另一側的事物變成這個年代冒險者主要的工作。
+
+沒有人想到原本就住在地下城的智慧怪物會變成阿宅，守護著所有冒險者都垂涎欲滴的「寶物」吧。看著自稱新時代眼魔文學旗手的康拉德，整天待在塞滿了書籍和模型的房間中，瞪著對他的眼睛來說實在太小的螢幕，艱困地用觸手在鍵盤上打字，這就是墮落成阿宅的眼魔的末路，就算本人再怎麼樂在其中，也實在讓人無言以對。
+
+「墮落成侍奉阿宅眼魔的女僕更說不過去吧喂。」想必會被康拉德這樣吐槽吧，露忒吐了吐舌頭。當年，康拉德用念動力把牽繩還給露忒，「反正我也沒有能夠拿起牽繩的手」，於是她拿回了自己的牽繩，但交出了自己的心。接下來，露忒每隔一段時間就得處理掉一波覬覦著康拉德寶物的冒險者，還得幫這隻眼魔送連載的小說稿到出版社。唉，自己儼然活成了魔王的走狗。
+
+露忒走出槍砲與彈藥側的新宿站出口，小小的出版社隱藏在掛滿霓虹燈招牌的商業大樓中。「魔王的原稿來囉～」「ははっ！」編輯小姐半開玩笑的單膝下跪，雙手接下裝著小說原稿的隨身碟。回程時順便幫魔王外帶拉麵吧，記得不要放蔥。這就是在這個巨變的時代中，女僕露忒的日常生活。
+
+
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
