@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山越凜鬼 角色故事 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 3000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/rinki.png" alt="山越凜鬼">
+    <div class="character-info">
+      <h1>山越凜鬼</h1>
+      <p>這裡可以放一句簡單的角色短評、稱號或背景介紹。</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / 角色故事集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>zero、南方有贛巨人</h3>
+          <p class="story-subtitle">記住她的名字吧，也許哪一天，你也會在路邊的小酒店裡和她喝上一杯</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>「南方有贛巨人，人面長臂，黑身有毛，反踵，見人笑亦笑，脣蔽其面，因即逃也。」山海經　海內經卷。 
+
+-- 　　
+山越凜鬼是山魈，在遙遠的過去縱橫中國的大地，後來從中國渡海來到日本落腳，隨著年紀漸長，也漸漸地不再吃人，性質從山魈轉變成山童，甚至也和一些人類交上了朋友，但也因此成為妖怪士兵計畫的目標。 　　
+
+妖怪士兵計畫是中野機關的另一個瘋狂構想，先不提執行者早已脫離了提案者井上博士的目標，將手段視為目的的問題，計畫本身已經達到了一定的成果。研究者們利用妖怪強大的身體能力進行人體...妖體改造，用咒力義肢壓制妖怪的妖力使其瘋狂，進而人為控制妖怪，打造出超越極限的生體兵器。 　　
+
+凜鬼在一次拼酒當中醉的不省人事，當她再次醒來時，除了四週的頌經聲在昏暗的燈光中迴盪之外，只剩下雙腿傳來的劇痛刺激著她的野性。就結論而言，機關的研究者錯估了凜鬼的實力，將其視為單純的山童看待，因此投入的藥量和防護措施都顯得不足，所以在手術進行到一半，只砍掉她的雙腳時，凜鬼就醒了過來，而結局就是有血有肉的大災難。 　　
+
+凜鬼在數百年不見的劇痛帶來的高潮中，只靠雙手就吃掉了現場的所有人，然後順手抄了看起來最值錢的東西就逃出了研究所，下意識的來到息吹開設的製作工坊前。 　　
+
+息吹從聖瑪麗亞學園畢業之後，靠著之前在伏見組打工存下來的錢，在帝都的小巷子裡開了一家機械製作所，這個地方也是之前河童 河城一郎的秘密基地之一，所以也在妖怪的世界裡有一點名氣，十紋也看在伏見真利男的面子上對這個地方睜一隻眼閉一隻眼。作為這個灰色地帶的主人，息吹打開門，接納了高潮後虛脫的凜鬼。 　　
+
+之前就從各種蛛絲馬跡推測出妖怪士兵計畫的息吹很快的就理解了凜鬼的現況。她看著已經被封死再生能力的凜鬼雙腿，決定乾脆把凜鬼帶出來的義肢裝上去。她移除了對妖怪有害的零件，並且施加了身為工程師忍不住不做的改造，然後凜鬼就多了一雙閃著金色光澤的黑腿...... 　　
+
+完成手術後，息吹才意識到凜鬼帶出來的義肢應該是手臂......看著滿意的跳來跳去的凜鬼，息吹決定把這件事埋葬在九州家鄉的鍊鐵爐裡，帶著職業用微笑推辭了凜鬼的道謝和報酬。於是，凜鬼的雙腳就這樣陰錯陽差的「得到了抓握的功能」...... 　　
+
+順帶一提，在這之後凜鬼的卡波耶拉變得更加凌厲，所以大概也勉強算的上因禍得福吧。 　　
+
+為了追捕凜鬼，阻止機密的外洩，中野機關派出了各種殺手，但都被凜鬼一一擊退（或一一吃掉，端看所謂擊退的定義），最後甚至毀掉了整個妖怪士兵計畫也就暫且不提。無論世界如何改變，她依然隨心所欲的過著妖怪的生活。她不在乎國家（就和大多數的妖怪一樣），只在乎對方值不值得交往；她沒有責任和義務，只是遵照著自己的慾望行動，就算結局是死亡，也會毫不猶豫的踏出腳步。她是威風凜凜的山魈，她是跨海而來的惡鬼，記住她的名字吧，也許哪一天，你也會在路邊的小酒店裡和她喝上一杯。 
+
+-- 　　
+義肢上有著「獅子奮迅」的刻印，看來是這套裝備的代號。息吹覺得跟適合凜鬼所以沒有移除。 她把「兵主蚩尤に捧げよ」烙印在獅子奮迅的底下，轉移咒力文字的目標。 　　
+
+山魈本來就是反足妖怪，所以很自然的就靠著食指、中指、無名指的指尖站立。新的腳比原本的腳更好呢，聽到直率的凜鬼這樣說，息吹也多少對自己的疏忽釋懷了。</p>
+
+      </div>
+    </div>
+
+    <!-- 故事 2 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>um、凜鬼與貓與貯古齡糖</h3>
+          <p class="story-subtitle">山越凜鬼從閣樓一躍而下。</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>山越凜鬼從閣樓一躍而下。
+
+這是隱藏在小巷弄間的洋式建築，外頭掛著小小的「多々良製作所」招牌。經過二樓的洋窗旁時，妖貓火車對凜鬼眨了眨眼睛。凜鬼輕巧落地，巨大的雙腳一瞬間收縮變形，同時也吸收了著地的衝擊。黑色的雙腿在清晨陽光的照耀下閃著金光，變形成馬靴的形狀。她踏著輕巧的步伐，走向即將開始繁忙的街道。
+
+或許你曾經聽說，在帝都複雜的巷弄裡有一家很難找到的製作所，製作所的主人是一個其貌不揚的女孩，養了一隻又胖又難看的三毛貓。這貓名喚火車，是一隻活了千年的大妖怪，但命運作弄，被店主多々良息吹封印了妖力，連回復原形的能力都消失了，現在成為多々良製作所的店貓，唯一的樂趣只剩下用靜電攻擊想摸牠的顧客。這隻貓有一天聽說西洋蠻子的點心「貯古齢」用糖和牛血做成，怎麼樣都想吃吃看，但是在息吹的工坊裡每餐都是變個花樣吃茄子，而息吹的好友，一向溺愛火車的千金大小姐節子則是死活不肯買給牠。所以牠只好找上了凜鬼。
+
+--
+故事還是從稍早說起。山越凜鬼是山魈，和火車同樣都是吃人的妖怪，但妖貓火車喜歡的是屍體，那可是越陳越香；凜鬼喜歡的是生吞活剝，肉還是新鮮的好吃。無論如何，牠們都是受到人類忌避的妖怪，也是長年以來的酒肉朋友。後來，凜鬼漸漸地不再吃人，火車也躲進了聖瑪麗亞學園後山的亂葬崗，兩隻妖怪慢慢地斷了連絡。再後來，火車被九州來的鄉巴佬妖怪（息吹）打敗，被人類小女孩（節子）抓起來打扮，最後竟然幫助自己最痛恨的十紋解決帝都的災難，這隻千年三毛貓怎麼也沒想到居然習慣了店貓的日常。而凜鬼在這百年之間，為了喝上一口白蘭地，也千辛萬苦地學會了金錢的概念。牠跟凜鬼再次相會是在下著大雨的深夜，凜鬼雙腿從膝蓋上方截斷，丟掉了人類的偽裝，滿身是血倒在息吹工坊的門前，散發出來的強烈妖氣蓋過天上的雷聲，讓息吹顧不得換掉睡衣，和火車一起打開工坊的大門。連大雨都蓋不住的撲鼻血腥味刺激著一人一貓的神經，要不是凜鬼抱在懷中的異質器械，以及一眼認出凜鬼身分的老朋友火車，剛殺死數十人的凜鬼的命運，想必將是魂斷於某個厄除的刀下。
+
+接下來的事大家都知道了。息吹幫凜鬼的斷腳接上了咒力義肢，凜鬼則再次大開殺戒，帶著一點開心，和一點嫌麻煩的表情解決掉打擾她的蒼蠅......嗯，妖怪士兵。為了就近檢修咒力義肢，息吹讓她住進了工坊的閣樓，而從此也不時得處理凜鬼吃剩的殘骸（大多數都進了火車的胃袋。）不過這家店接的多半也都不是什麼檯面上的case，現在也只是多了點血腥味......息吹搖了搖頭，又埋頭進入複雜而美妙的工程世界裡。
+
+--
+凜鬼來到月風堂米津總店，輕易地買到了貯古齢糖。比想像中還貴，小小一盒就要10錢。她扳下一顆深褐色的糖磚拋進口中，皺了皺眉頭。一點兒血味也沒有。用牛血當材料卻吃不出血味實在莫名其妙。就在不久前，她隨手解決掉一個能夠自由控制血液的妖怪士兵。那士兵雙手手腕安裝了咒力義肢，從大動脈抽取血液，不但能射出硬質化的血彈，生成削鐵如泥的血刃，傷口也能夠馬上凝血，免疫各種傷害。操血士兵一面使出自己的招式，一面說明招式的特色，就在說到「就算失血過多也因為擁有全血抗原而能夠接受任何血型的輸血」時，凜鬼一記Meia Lua de Compasso，用腳爪扯掉了這顆嘴巴比招式還快的頭。這妖怪士兵嚐起來也是一點血味也沒有，比貯古齢糖還難吃，所以全都丟給火車了。火車興高采烈的把屍體埋進土裡，每天流著口水期待著熟成的滋味，也許貯古齡糖牠會喜歡也說不定。
+
+吃了貯古齡糖之後，火車差點死掉的經過應該就不必多說了吧。節子恰好知道怎麼處理可可鹼對貓造成的中毒症狀，火車也著實吃了好一頓苦頭，長達千年的貓生從此又增加了一筆心靈創傷。「貯古齡糖的原料是可可豆和牛奶，加了牛血是謠言。」節子推了推當上記者之後才戴上的眼鏡，用職業婦女幹練的表情和語氣對虛弱的火車說教，「新聞也有寫，這是常識，不知道就吃虧了。」息吹在一旁欲言又止，要求貓讀報紙似乎有點溢脫常識的範疇呀。凜鬼讓息吹重新裝上咒力義肢，早上那一跳好像還是超過了義肢設計的極限。就像貯古齡糖對於妖貓火車，這雙新腳是她千年來的生活中最新最大的刺激。創造力是她不再把人類當主食的原因，這能力不僅讓千年妖貓差點一命嗚呼，也讓她失去奔馳千年的雙腿，實在太過有趣，讓她捨不得再吃掉任何有可能帶給她新體驗的人類。她站起來扭了扭手腕，一記Macaco猴翻上了樓。現在的每天比起過去的每年都來的有趣許多，明天和明天的明天，她還要在這變幻莫測又色彩繽紛的帝都裡，全力且貪婪地享受人類創造的世界。
+
+--
+op: Capoeira Do Brasil
+Letra de la Cancion:
+Capoeira Do Brasil - Sergio Mendes</p>
+      </div>
+    </div>
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
