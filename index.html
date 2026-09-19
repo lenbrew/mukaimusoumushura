@@ -7,9 +7,12 @@
 
 <script>
     // 自動偵測語系，日文環境跳轉到日文版
-    var userLang = navigator.language || navigator.userLanguage;
+    var userLang = navigator.language || '';
+    
+    // 檢查是否為日文語系，且沒有手動指定切換回中文
     if (userLang.startsWith('ja') && !window.location.search.includes('lang=zh')) {
-        window.location.href = "index_jp.html";
+        // 使用 replace 替代 href，避免「上一頁」陷入無限跳轉的死局
+        window.location.replace("index_jp.html");
     }
 </script>
 
