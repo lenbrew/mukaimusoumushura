@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>無界無双無修羅</title>
 
+
 <script>
     // 自動偵測語系，日文環境跳轉到日文版
     var userLang = navigator.language || '';
@@ -18,7 +19,10 @@
 
 <!--
 =====================================================================
-
+  這個網頁怎麼編輯？
+=====================================================================
+  跟你的個人頁面(index.html)是同一套寫法、同一套顏色設定，
+  只是拿掉了紅色毛筆筆畫的裝飾。
 
   找地方改，一樣用 Ctrl+F / Cmd+F 搜尋這些關鍵字：
 
@@ -85,6 +89,11 @@
     cursor: zoom-in;
     background: var(--card);
     border: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
+
+  .thumbnail:last-of-type {
+    margin-bottom: 0;
   }
 
   .showcase-hint {
@@ -220,18 +229,22 @@
 </head>
 <body>
 
-<!-- ============ 標題區 ============ 
+<!-- ============ 標題區 ============ -->
 <section class="hero">
   <div class="wrap">
-   <h1>無界無双無修羅</h1> 
+    <h1>無界無双無修羅</h1>
   </div>
-</section>-->
+</section>
 
 <!-- ============ 宣傳圖展示區 ============ -->
 <section class="showcase">
   <div class="wrap">
-    <!-- 【改圖片】把 src 換成最新的宣傳圖路徑 -->
-    <img src="image/boothcut_RGB.png" alt="無界無双無修羅" class="thumbnail" id="sellSheetImg">
+    <!-- 【改圖片】每張圖都用 class="thumbnail"，不需要id；新增圖片直接複製一行 <img> 貼上即可 -->
+    <img src="image/boothcut_RGB.png" alt="無界無双無修羅" class="thumbnail">
+    <img src="image/1minmushurai_1.jpg" alt="一分鐘無修羅" class="thumbnail">
+    <img src="image/1minmushurai_2.jpg" alt="一分鐘無修羅" class="thumbnail">
+    <img src="image/1minmushurai_3.jpg" alt="一分鐘無修羅" class="thumbnail">
+    <img src="image/1minmushurai_4.jpg" alt="一分鐘無修羅" class="thumbnail">
     <div class="showcase-hint">點擊圖片放大檢視</div>
   </div>
 </section>
@@ -240,7 +253,7 @@
 <nav class="nav-bar">
   <div class="wrap" style="display:flex; gap:14px; flex-wrap:wrap;">
     <!-- 【改連結】換成實際的規則頁面、日文版連結 -->
-    <a href="https://drive.google.com/file/d/14_REHYFGmOQP8wgNUxlLyDYqSO95vPRc/view?usp=drive_linkl" target="_blank" class="nav-link">遊戲規則(PDF)</a>
+    <a href="rules.html" class="nav-link">遊戲規則</a>
     <a href="index_jp.html" class="nav-link">日本語で表示</a>
   </div>
 </nav>
@@ -248,44 +261,24 @@
 <!-- ============ 角色故事區 ============ -->
 <section class="characters">
   <div class="wrap">
-    <div class="section-title">修羅文庫</div>
+    <div class="section-title">角色故事</div>
     <div class="character-grid">
       <!-- 【改角色】複製一整塊 <a class="character-card">...</a>，換圖片路徑、連結、名字即可 -->
-      <a class="character-card" href="story/rinki.html" rel="noopener">
-        <img src="image/rinki.png" alt="山越凜鬼">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
+        <img src="https://placehold.co/200x200/faf8f5/6b6459?text=烏香卡" alt="烏香卡頭像">
+        <div class="character-name">烏香卡</div>
+      </a>
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
+        <img src="https://placehold.co/200x200/faf8f5/6b6459?text=凱蒂" alt="凱蒂頭像">
+        <div class="character-name">凱蒂</div>
+      </a>
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
+        <img src="https://placehold.co/200x200/faf8f5/6b6459?text=山越凜鬼" alt="山越凜鬼頭像">
         <div class="character-name">山越凜鬼</div>
       </a>
-      <a class="character-card" href="story/ekaterina.html" rel="noopener">
-        <img src="image/ekaterina.png" alt="葉卡捷琳娜．羅曼諾娃">
-        <div class="character-name">葉卡捷琳娜．羅曼諾娃</div>
-      </a>
-      <a class="character-card" href="story/fiona.html" rel="noopener">
-        <img src="image/fiona.png" alt="獅子堂菲歐娜">
-        <div class="character-name">獅子堂菲歐娜</div>
-      </a>
-      <a class="character-card" href="story/rotte.html" rel="noopener">
-        <img src="image/rotte.png" alt="露忒．薩路基">
-        <div class="character-name">露忒．薩路基</div>
-      </a>
-      <a class="character-card" href="story/under_working.html" rel="noopener">
-        <img src="image/wogrinde.png" alt="沃克琳德">
-        <div class="character-name">沃克琳德</div>
-      </a>
-      <a class="character-card" href="story/under_working.html" rel="noopener">
-        <img src="image/enmi.png" alt="不知火 厭魅">
-        <div class="character-name">不知火 厭魅</div>
-      </a>
-      <a class="character-card" href="story/vasenka.html" rel="noopener">
-        <img src="image/vasenka.png" alt="烏香卡．艾伐">
-        <div class="character-name">烏香卡．艾伐</div>
-      </a>
-      <a class="character-card" href="story/kati.html" rel="noopener">
-        <img src="image/kati.png" alt="凱蒂．羅斯">
-        <div class="character-name">凱蒂．羅斯</div>
-      </a>
-      <a class="character-card" href="story/under_working.html" rel="noopener">
-        <img src="image/lilim.png" alt="莉莉姆．迪金森">
-        <div class="character-name">莉莉姆．迪金森</div>
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
+        <img src="https://placehold.co/200x200/faf8f5/6b6459?text=露忒" alt="露忒頭像">
+        <div class="character-name">露忒·薩路基</div>
       </a>
       <!--
         再新增角色，直接複製上面一整塊
@@ -302,7 +295,8 @@
     <div class="section-title">更新履歷 / Changelog</div>
     <!-- 【改更新履歷】在下面新增/修改 <li> 項目即可 -->
     <ul class="changelog-list">
-      <li><strong>2026.09.18</strong>更新版面設計</li>
+      <li><strong>2026.XX.XX</strong>更新規則說明與最新平衡調整。</li>
+      <li><strong>2026.XX.XX</strong>調整版面配置與美術宣傳圖。</li>
     </ul>
   </div>
 </section>
@@ -313,14 +307,16 @@
 </div>
 
 <script>
-  const thumbnail = document.getElementById('sellSheetImg');
+  const thumbnails = document.querySelectorAll('.thumbnail');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
 
-  thumbnail.addEventListener('click', () => {
-    lightboxImg.src = thumbnail.src;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      lightboxImg.src = thumb.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
   });
 
   lightbox.addEventListener('click', () => {
