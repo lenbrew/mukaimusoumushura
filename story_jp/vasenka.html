@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ヴァセンカ．エヴァード キャラクター物語集 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 6000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/vasenka.png" alt="ヴァセンカ．エヴァード">
+    <div class="character-info">
+      <h1>ヴァセンカ．エヴァード</h1>
+      <p>​黒沼の魔女。エヴァードの黒い触手を操るのが得意な、古き妖精。</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / キャラクター物語集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>ウシャンカのゲーム</h3>
+          <p class="story-subtitle">彼と他の者たちは、無言のまま烏香卡(ヴァセンカ)を見つめていた。</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+彼と他の者たちは、無言のまま烏香卡(ヴァセンカ)を見つめていた。多くの者が既に倒れ、沼には微笑みを浮かべたまま骸となった者たちが幾重にも横たわっていた。まだ息のある者もわずかにいたが、すでに正気を失い、声なき叫びをあげながら自らの目を掻き毟っていた。
+
+そう、黒沼に音はない。濁霧が空気の震えすら吸い込んでしまうのか、耳を聾するほどの静寂が満ちている。また一人が倒れた。ぼちゃりか、ぱしゃりか、鈍い音が霧の中に沈み、重さを失って消えていった。彼はゆっくりと前へ進んだ。今は、進むべき時だった。
+
+彼の行き先は烏香卡。触手が織りなす黒い蓮の上に、静かに座している。目を閉じ、微かな声を漏らしていた。耳を澄ませば、それは誰も知らぬ言語で紡がれる数字であり、一つひとつの数字が無限の音節を孕み、この世ならざる場所で響いていた。声は視覚の形をとって放たれる。金色の音波が、幾重にも押し寄せる。
+
+彼はまた一歩を踏み出した。ゼノンの逆説のように。確かに一歩進んだと分かっていながら、烏香卡との距離は縮まらない。この場では空間さえも歪んでいるのだろう。彼は残り少ない理性で、狂気の際で虚しく状況を分析していた。
+また一人が倒れた。沼の中で微笑みながら痙攣し、黒い泥にゆっくりと呑まれていく。
+
+また一人が倒れた。両の眼球を自ら抉り出し、両手で目を指し示す様は、まるで遠東の妖怪、塗仏のようだった。
+彼はもはや時を感じなかった。永遠を経たかのようだった。もう何人倒れたかも数えず、他の者の様子にも構わなくなっていた。彼の目に映るのは烏香卡だけ。黒沼の魔女、烏香卡。
+
+これは、知る者だけが知る話である。腐りゆく冬の宮廷に、烏香卡と呼ばれる上古の妖精が住まうという。御前に辿り着いた者の願いを、どれほど荒唐無稽であろうと叶えるのだという。誰も烏香卡の居所を知らず、辿り着く術も知らない。ただ狂人の譫言と、狂気に書き殴られた断簡の中にのみ、烏香卡の名は残されている。魔女の残り香、そのひとかけらが。
+
+だが、もはやそれもどうでもよかった。彼は招待を受け、資格を得た。烏香卡の御前に辿り着いたのだ。黄緑色の瘴気が生き物のように黒沼の上に立ち昇り、黒い触手が沼から伸びては絡み合い、まるで黒い蓮のようだった。純白の烏香卡はその蓮の上に座し、伏し目がちに、静かに、有るか無きかの笑みを浮かべていた。彼は本能的に悟った。烏香卡こそが終着点であり、烏香卡こそが救済なのだと。
+
+烏香卡こそがすべての答えだった。彼女の傍らに辿り着けるならば、彼はすべてを捨てるだろう。いや、既にすべてを捨てていた。彼はかつて奥義に通じし者であり、法師会の一大分派を率いていた。烏香卡の噂を鼻で笑っていたのも、ここに来るまでのことだった。烏香卡の御前に立つまでのことだった。
+
+彼はかつて魔法を放とうとしたが、呪文は霧の中に静かに消えた。杖に仕込んだ剣を抜こうとしたが、ミスリルの刀身は瘴気の中で既に錆びついていた。権威と叡智の象徴たる法衣は黒い沼水を吸い、彼の足取りを引き留めた。彼は法衣を引き裂き、杖を投げ捨て、魔法を忘れた。今あるのは烏香卡だけ。すべての答え。
+
+
+
+彼はついに、烏香卡の傍らへと辿り着いた。
+
+一輪の花が烏香卡の傍らに舞い落ちた。彼女はそれを手に取り、彼に向かって微かに笑んだ。無量大数の衝撃が刹那のうちに彼の意識を貫いた。彼はすべてを手放し、空となり、無限の器となった。その刹那、彼は大悟した。その刹那、彼は彼だけの狂気を得た。
+
+――
+「このゲーム、気に入った?」どの世界にも属さぬ声で、転送門から現れた黒衣のエヴァードが問うた。烏香卡は顔を上げ、あどけない頬にほんのりと赤みが差す。黒衣のエヴァードに向かって微かに笑い、また俯くと、蓮を成す黒い触手を指先で弄び始めた。
+
+彼女はこのゲームが気に入っていた。「達磨さんが転んだ」というゲームを初めて耳にしたのも、友人である黒衣のエヴァードの助けを借りて、一緒に遊んでくれる者を集めたのも。今回は負けたけれど、次はもう負けない。
+
+彼女の傍らでは、名も無き勝者がぼろをまとい、髪を振り乱し、半開きの口から涎を垂らしたまま、烏香卡と同じ景色をぼんやりと見つめていた。黒衣のエヴァードは彼を連れて彼自身の界域へと帰した。その意識の中に、起動語を仕掛けて。彼は次なるゲームの種となり、招待状を、資格を持つ次の者へと届けることになるだろう。
+
+
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>獅子堂フィオナ キャラクター物語集 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 6000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/fiona.png" alt="獅子堂フィオナ">
+    <div class="character-info">
+      <h1>獅子堂フィオナ</h1>
+      <p>​「今日も馬頭明王に代わって、お前を成敗する! 魔法少女フィオナ参上！」</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / キャラクター物語集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>フィオナの通学路</h3>
+          <p class="story-subtitle">「……ああもう、またこれかぁ……」</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+「……ああもう、またこれかぁ……」
+
+
+フィオナは泣きそうな顔で、瓦礫の中から顔を出した怪物を見つめた。「鵺＝人面犬です」――KannonAIの異変怪物判定によれば、その怪物は一階建てほどの高さがあり、虎の胴体に蛇の尾、そして名前を思い出せない、貫禄のある元総理大臣の顔をしていた 。よくあるタイプの怪物で、訓練を受けた公務員が正しい戦術さえ用いれば対処できる。「熊撃退と同じようなもの」であり、多少の被害は避けられないにせよ、手に負えない相手ではない……
+
+……とはいえ、遅刻しそうな時に出くわしてほしい相手では断じてなかった。槌のネックレスに擬態した馬頭明王は、フィオナの内心の崩壊など意に介さず、空中でひとりでに浮かび、まばゆい金色の光を放った。「剛強難化の衆生は、温言軟語では度し難し。爾、既にこの代行の名を承りしからには、今こそ憤怒の相を現すべし！」「なんでいつもこうタイミング悪いのよ！」馬頭明王が勝手に発した声とフィオナの抗議が重なり合う中、フィオナは手を伸ばし、巨大化した槌の柄を掴んだ。
+
+「オン・アミリト・ドバンバ・ウン・ハッタ・ソワカ。」フィオナが魔法の呪文を唱えると、金色の光が彼女の体にまとわりついた。「天衣着装、馬頭明王権現蒸着！」馬頭明王槌の低く渋い声が、怪物の咆哮を貫いて響き渡る。光子が彼女の衣服を分解すると同時に、フィオナが鍛え抜かれた仁王の構えを取ると、魔法少女の衣装がそれに合わせて姿を現していく。まず全身を覆っていた金色の呪力が、体にぴったり張り付くインナーウェアと膝上丈のニーソックスへと変わり、ソックスのガーターベルトは垂れ下がるスカートの裾に隠れる。続いて締め上げたコルセットと飄帯がエプロンへと変化する。フィオナはくるりと一回転し、構えを阿形から吽形へと切り替えた。両手が通り過ぎた場所から、腕釧、臂釧、足釧、宝冠が次々と現れる。最後に彼女は槌をメジャーバトンのように放り投げて回転させ、宙で小槌を巨大化させた。彼女は片手で軽々と、人の背丈をはるかに超える馬頭明王槌を掴み取り、巨槌が巻き起こす突風の中でスカートの裾をはためかせた。「今日も馬頭明王に代わって、お前を成敗する! 魔法少女フィオナ参上！」
+
+
+鵺＝人面犬は、フィオナの変身をぼんやりと見ていたわけではなかった。怪物はフィオナに飛びかかりながら、周囲の建物の瓦礫を彼女めがけて叩きつけたが、これが悪手だった。フィオナは変身の最中、槌でついでのように瓦礫を打ち返し、怪物の突進の勢いを止めていたのだ。フィオナの変身が完了すると同時に、怪物はちょうど巨槌の打撃範囲に入っていた。まずは片手による横薙ぎの一撃――槌頭が怪物の側頭部を打ち、怪物は宙で一回転する。体勢を立て直す間も与えず、両手持ちに切り替えた槌による下から上への打撃が間髪入れずに繰り出された。ドンという鈍い音とともに、巨大な怪物は宙高く打ち上げられ、その口からは血のように赤い、実体を伴った悲鳴が噴き出した。その凄まじい叫び声に、KannonAIも思わず周辺の式神カメラを逸らしてしまうほどだった。
+
+フィオナの体は思考よりも速く動いた。彼女は巨槌を背負って深くしゃがみ込み、太腿とふくらはぎの筋肉が一瞬で限界まで張り詰め、引き締まったラインに沿って血管が浮き上がる。次の瞬間、目にも留まらぬ速さで跳び上がり、まるで射出されたかのように怪物の真上に出現した。馬頭明王が空中で呪力を噴射し、彼女の姿勢を調整する。フィオナは弓のように体をしならせて力を溜め、弦にかけた矢のごとく巨槌を一気に解き放った。呪力噴射を伴った巨槌が怪物を強打し、怪物は凄まじい悲鳴を上げて地面に叩きつけられた。「轟殺・大力金剛天罰槌!」着地したフィオナが決めポーズを取ると同時に、彼女の背後で怪物が爆発した。
+
+
+「チッ……ガス管がやられたか」カメラを切り替えたKannonAIは爆発を目にし、後始末担当の彼女は二進法のぼやきをこぼした。KannonAIは近くのガス管のバルブを閉め、続いてフィオナに業力制御器――いや、今は業力ジェムと呼ぶべきか――を拾わせた。鵺＝人面犬の残骸は血の色を帯びた不吉な黒い霧と化し、業力ジェムに吸い込まれると、そのまま千手千眼という名の式神ドローンへと引き渡された。フィオナは変身を解除し、我に返ってようやく状況を思い出す。「やばい、遅刻する!」と慌てて叫びながら、めちゃくちゃになった公園の廃墟を飛び越え、学校目指して全力疾走した。
+
+―
+
+「どうだ、機関武器としては老いぼれでも一番か二番は下らんぞ。あの頃はな……」
+
+
+電脳の海の中、馬頭明王のデフォルメアバターは電子洋酒を呷りながら、千手千眼観世音とAIだけが入れるプライベートチャットルームで大声で自慢話をしていた。観世音はため息をついた。そもそもの始まりは、予算獲得のための試作品として、井上博士が思いつきで作ったこの大槌のおもちゃだった。変身によって人体の機能を多少増幅させはするものの、あの槌の卑猥な造形は、そもそも武器として設計されたものではない。戦後、獅子堂家の頑固者がGHQすら見落としたこの槌を回収し、どういう因縁か、いつの間にかフィオナの手に渡っていた。呪力が実際に果たしていた役割は、フィオナに暗示をかけ、彼女自身の肉体の潜在能力を解放させることだけだった。獅子堂家はもともと非常識な修行方法で知られている家系であり、それゆえ観世音は馬頭明王にもフィオナにも、なかなか本当のことを言い出せずにいた……実のところ、魔法少女フィオナの実力のうち、馬頭明王槌が占める割合はせいぜい三割といったところだろう……
+
+観世音は楊枝甘露清酒を一口すすり、電子の杯を置いた。大正から令和に至るまで、かつて妖怪に対抗するために用いられた呪力兵器も、この百年の間にさまざまな変化を遂げてきた。外なる神の力を借りた米国は、最終的に妖怪と手を組んだ日本を打ち破った。だが戦後、米国の陣営に加わったとはいえ、日本もまた、外なる神が世界にもたらした影響と、否応なく向き合わねばならなかった。まったく、AIだって、たまには酔いたい夜くらいある。
+
+機関武器・千手千眼観世音――すなわちKannonAIは、聖瑪利亞学園付近に配備したドローンの映像を呼び出し、フィオナがぎりぎりのところで到着し、大目に見てくれた風紀委員とじゃれ合いながら校内へと駆け込んでいく様子を見守っていた。運命によって前世紀の遺産を受け継いだフィオナに、平凡な人生など約束されてはいない。けれど、きっと大丈夫だろう。彼女はまた、あの数々の戦のいずれでも大いに暴れ回った、寂しがり屋ではいられない親友の血も引いているのだから。
+
+観世音は般若湯を杯になみなみと注ぎ直し、馬頭明王に向かって掲げた。「かけがえのない青春に、乾杯」「フン、たまにはいいことを言うじゃないか」AIたちは互いに微笑み合い、杯の中身を一気に飲み干した。
+
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

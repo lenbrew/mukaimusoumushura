@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ロッテ・サルーキ キャラクター物語集 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 6000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/rotte.png" alt="ロッテ・サルーキ">
+    <div class="character-info">
+      <h1>ロッテ・サルーキ</h1>
+      <p>​犬拳の達人、種族は犬獣人――もし興味があるなら、犬種はサルーキかもしれない。</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / キャラクター物語集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>ロッテ・サルーキの日常</h3>
+<p>ビホルダーのコンラート・フォン・アウゲンフェルスは目を細めてため息をついた。</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+ビホルダーのコンラート・フォン・アウゲンフェルスは目を細めてため息をついた。「ったく、また来たのか」目玉の触手を振るうと、冒険者たちが飛んでくる魔法に身構えた瞬間、全員が訳もわからぬまま一撃を食らい、扉の外へと吹き飛ばされた。
+
+扉の内側では、コンラートがヘッドセットマイクを装着し、「実況」と書かれた札を机に置くと、雑物の山から呼び鈴を掘り出し、触手でチリンチリンと鳴らした。「視聴者の皆さん、こんにちは。コンラートのダンジョン攻略実況へようこそ。私はコンラート・フォン・アウゲンフェルス。新宿ダンジョンより、メイドのロッテ対冒険者パーティー『銀狼の牙』の一戦をお届けします」
+
+ビホルダーは咳払いをした。扉の外では、冒険者たちが起き上がっていた。魔法使いはさっきの一撃で血を吐き、僧侶が慌てて回復魔法をかける。戦士は長剣を構え、目の前の敵を見据えた。メイド服を着た犬系獣人が身をひねって飛び上がり、その場で跳ねながら構えを取る。――さっき俺たち全員を、こいつ一人で吹き飛ばしたのか？戦士は冷や汗を流した。
+
+「ご存知の通り、『銀狼の牙』は最近急成長を遂げた冒険者パーティー。銀級に昇格したこのパーティーが、ついに決意を固め、長らくダンジョンの宝物庫を占拠する邪悪なビホルダー、コンラートの攻略に乗り出しました。しかし彼らが目にしたのは、邪悪なビホルダー本人ではなく、コンラートの淫威に屈した元冒険者の獣人、ロッテでした。おおっと、ロッテの冷たい殺気には、罪もない実況担当のビホルダーも震え上がっております……」
+
+「さあ、話しているうちに戦闘が始まりました。僧侶の回復と同時に魔法使いが詠唱を開始、戦士は魔法使いの前に立ちはだかり、盗賊は戦士の影から飛び出して短剣を投げつける。さすが銀級パーティー、連携は完璧です。しかしロッテの対応は予想外――そのまま後ろに倒れ込み、地に伏せたまま短剣をかわし、止まらぬ盗賊もかわしてみせました。これが最近評判の地躺拳――ダンジョンで特に有効な拳法です。メイド服姿で繰り出すその姿も実に格好いい。ちなみに皆さん、ロッテの下着は白――」
+コンラートは真っ直ぐ飛んできた短剣を受け止めた。マイクが甲高いハウリング音を立てる――
+
+「……ゴホン。視聴者の皆さん、ロッテは盗賊をかわすと同時に、手にしたリードで盗賊の足を絡め取り、翻身しながら立ち上がると、もともと小柄な盗賊を戦士めがけて投げ飛ばしました。二人はまさに相思相愛、ぶつかり合って一つに――絶対キスしましたね、戦士と盗賊、間違いなくキスしました。おっと、ロッテは戦×盗のイチャイチャなどお構いなしに、盗賊の背中を踏み台にして魔法使いへと突進します。しかし魔法使いの詠唱もあと少し。間に合わない――いや、これは間違いなく、さっき罪もないビホルダーに短剣を投げつけて時間を無駄にした彼らの落ち度です！」
+
+「いや違う、メイドのロッテが咆嘯を放ちました――成功、魔法使いの詠唱が中断されました。これで彼女は今年97回目のこの技の使用、打率は2割4分、リーグ平均レベルといったところでしょうか。おっと、なぜ私めがけて人を投げつけて――」
+
+「……我が愛しの主、ファウルボールに目はございません」ロッテは乱れた髪を軽く整えると、完璧な笑みを浮かべ、コンラートに向かって淑やかにスカートの裾をつまんで一礼した。コンラートは魔法使いにぶつかって壊れた実況台を見つめると、振り返り、すべての目でガタガタと震える僧侶を見た。
+
+「あの……この机、結構高かったんですが。修理代、少し出していただけませんか？」
+
+――
+ロッテは漫画のように頭に星を浮かべた『銀狼の牙』の面々を台車に乗せて、ダンジョンの安全地帯へと運び、体についた埃を払った。地躺拳は倒れ込む動作が多いため、制服には汚れの目立ちにくい色を選んでいるが、安全地帯の明かりの下では、それでもいまひとつ様にならない。このあと主人の原稿を向こう側の出版社へ届けなければ。せめて着替えてから出かけよう。それにしても、この時代になってもなお、魔法ネットワークと光回線が繋がらないとは、一体どういうことなのか。
+
+大融合災害から、もうずいぶんと時間が経った。剣と魔法の世界、銃と弾薬の世界。二つの世界のダンジョンが、原因不明のまま融合してしまったのだ。異なる位相の構造が互いに軋み合い、押し合い、大きな災害と悲劇をもたらした。しかし時が経つにつれ、人々も少しずつ現状を受け入れていった。ダンジョンの両端は、文字通り「新世界」へと繋がっている。それはダンジョン探索に、まったく新しい意味を与えることとなった。融合と崩壊は今も進行中で、ダンジョン探索は以前にも増して危険になったが、同時に、二つの世界の文化がここでぶつかり合い、鮮やかな火花を散らしてもいる。新世界そのものへ赴くよりも、ダンジョンからもう一方の世界の品を持ち帰ることこそが、この時代の冒険者たちの主な仕事となった。
+
+もともとダンジョンに住んでいた知性ある怪物が、まさかオタクと化すとは誰も思わなかっただろう。冒険者たちが誰もが涎を垂らす「お宝」を守っているというのに。書籍とフィギュアで埋め尽くされた部屋に一日中こもり、自分の目には小さすぎる画面を睨みつけ、触手で悪戦苦闘しながらキーボードを叩く――「新時代のビホルダー文学の旗手」を自称するコンラートを見ていると、これがオタク化したビホルダーの成れの果てかと、本人がどれだけ楽しんでいようとも、なんとも言葉が出てこない。
+
+「オタクビホルダーに仕えるメイドに成り下がった方が、よっぽど格好つかないだろ」――そうコンラートに突っ込まれるに違いない、とロッテは舌を出した。あの日、コンラートは念動力で牽引ひもをロッテに返した。「どうせ俺には、リードを持てるような手はないからな」――そうして彼女は自分のリードを取り戻したが、代わりに自分の心を差し出していた。それ以来、ロッテは定期的にコンラートの宝を狙う冒険者たちを片付け、連載中の小説の原稿を出版社まで届ける仕事もこなしている。ああ、自分はすっかり魔王の忠犬になってしまったらしい。
+
+ロッテは銃と弾薬側の新宿駅の出口を抜けた。小さな出版社は、ネオン看板がひしめく雑居ビルの中に隠れている。「魔王様の原稿でーす」「ははっ！」編集さんは冗談交じりに片膝をつき、両手で小説原稿の入ったUSBメモリを受け取った。帰りに魔王のためにラーメンをテイクアウトしていこう、ネギ抜きで。それが、この激変の時代における、メイド・ロッテの日常だった。
+
+
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
