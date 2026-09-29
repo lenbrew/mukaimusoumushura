@@ -74,7 +74,7 @@
     padding: 40px 0;
   }
 
-  .thumbnail {
+ .thumbnail {
     display: block;
     width: 100%;
     height: auto;
@@ -82,6 +82,11 @@
     cursor: zoom-in;
     background: var(--card);
     border: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
+
+  .thumbnail:last-of-type {
+    margin-bottom: 0;
   }
 
   .showcase-hint {
@@ -110,6 +115,11 @@
   }
 
   .nav-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+ .nav-link-primary {
     background: var(--ink);
     color: var(--paper);
   }
@@ -227,8 +237,11 @@
 <!-- ============ 宣傳圖展示區 ============ -->
 <section class="showcase">
   <div class="wrap">
-    <!-- 【改圖片】把 src 換成最新的宣傳圖路徑 -->
-    <img src="image/boothcut_RGB.png" alt="無界無双無修羅" class="thumbnail" id="sellSheetImg">
+    <img src="image/boothcut_RGB.png" alt="無界無双無修羅" class="thumbnail">
+    <img src="image/1minmushurai_1_jp.jpg" alt="1分間無修羅" class="thumbnail">
+    <img src="image/1minmushurai_2_jp.jpg" alt="1分間無修羅" class="thumbnail">
+    <img src="image/1minmushurai_3_jp.jpg" alt="1分間無修羅" class="thumbnail">
+    <img src="image/1minmushurai_4_jp.jpg" alt="1分間無修羅" class="thumbnail">
     <div class="showcase-hint">画像をクリックして拡大表示</div>
   </div>
 </section>
@@ -237,6 +250,7 @@
 <nav class="nav-bar">
   <div class="wrap" style="display:flex; gap:14px; flex-wrap:wrap;">
     <!-- 【改連結】換成實際的規則頁面、日文版連結 -->
+<a href="https://forms.gle/27QRRFn77rZropXG6" target="_blank" rel="noopener" class="nav-link nav-link-primary">TGM2026予約</a>
     <a href="https://drive.google.com/file/d/1vHaGSyACXbOrt9_ZSAFyf-CrFr4lTl1b/view?usp=sharing" target="_blank" class="nav-link">ゲームのルール(PDF)</a>
     <a href="index.html" class="nav-link">中文版</a>
   </div>
@@ -248,39 +262,39 @@
     <div class="section-title">修羅文庫</div>
     <div class="character-grid">
       <!-- 【改角色】複製一整塊 <a class="character-card">...</a>，換圖片路徑、連結、名字即可 -->
-      <a class="character-card" href="story_jp/rinki.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/rinki.png" alt="山越凜鬼">
         <div class="character-name">山越凜鬼</div>
       </a>
-      <a class="character-card" href="story_jp/ekaterina.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/ekaterina.png" alt="エカチェリーナ・ロマノヴナ">
         <div class="character-name">エカチェリーナ・ロマノヴナ</div>
       </a>
-      <a class="character-card" href="story_jp/fiona.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/fiona.png" alt="獅子堂菲歐娜">
         <div class="character-name">獅子堂菲歐娜</div>
       </a>
-      <a class="character-card" href="story_jp/rotte.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/rotte.png" alt="ロッテ．サルーキ">
         <div class="character-name">ロッテ．サルーキ</div>
       </a>
-      <a class="character-card" href="story_jp/under_working.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/wogrinde.png" alt="ヴォークリンデ">
         <div class="character-name">ヴォークリンデ</div>
       </a>
-      <a class="character-card" href="story_jp/under_working.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/enmi.png" alt="不知火 厭魅">
         <div class="character-name">不知火 厭魅</div>
       </a>
-      <a class="character-card" href="story_jp/vasenka.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/vasenka.png" alt="エヴァルド・ヴァシェンカ">
         <div class="character-name">エヴァルド・ヴァシェンカ</div>
       </a>
-      <a class="character-card" href="story_jp/kati.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/kati.png" alt="カティ．ローズ">
         <div class="character-name">カティ．ローズ</div>
       </a>
-      <a class="character-card" href="story_jp/under_working.html" rel="noopener">
+      <a class="character-card" href="https://example.com/replace-with-real-link" target="_blank" rel="noopener">
         <img src="image/lilim.png" alt="リリム・ディキンソン">
         <div class="character-name">リリム・ディキンソン</div>
       </a>
@@ -310,14 +324,16 @@
 </div>
 
 <script>
-  const thumbnail = document.getElementById('sellSheetImg');
+  const thumbnails = document.querySelectorAll('.thumbnail');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
 
-  thumbnail.addEventListener('click', () => {
-    lightboxImg.src = thumbnail.src;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      lightboxImg.src = thumb.src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
   });
 
   lightbox.addEventListener('click', () => {
