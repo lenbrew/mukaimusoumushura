@@ -93,12 +93,18 @@
     margin-top: 10px;
     font-size: 13px;
     color: var(--ink-soft);
+  }
+
+  /* ---------- YouTube 影片 ---------- */
+  /* 寬度跟圖片一樣（100%），高度自動維持 16:9，手機也會跟著縮放 */
   .video-wrap {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9；若是直式 Shorts 改成 177.78% */
     margin-bottom: 20px;
+    border: 1px solid var(--line);
+    background: var(--card);
     overflow: hidden;
   }
 
@@ -263,6 +269,7 @@
         src="https://www.youtube-nocookie.com/embed/QMsswH1IdNs"
         title="無界無双無修羅 紹介動画"
         loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
