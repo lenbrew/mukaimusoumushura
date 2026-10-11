@@ -102,6 +102,30 @@
     color: var(--ink-soft);
   }
 
+
+ /* ---------- YouTube 影片 ---------- */
+  /* 寬度跟圖片一樣（100%），高度自動維持 16:9，手機也會跟著縮放 */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9；若是直式 Shorts 改成 177.78% */
+    margin-bottom: 20px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    overflow: hidden;
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+  }
+
+
   /* ---------- 導覽列 ---------- */
   .nav-bar {
     display: flex;
@@ -137,10 +161,17 @@
   }
 
   /* ---------- 角色故事區 ---------- */
-  .characters {
-    padding: 32px 0 40px;
-    border-top: 1px solid var(--line);
+ .characters {
+    padding: 0 0 40px;
   }
+
+
+.characters .wrap::before {
+  content: "";
+  display: block;
+  border-top: 1px solid var(--line);
+  margin-bottom: 32px;
+}
 
   .character-grid {
     display: grid;
@@ -178,8 +209,14 @@
 
   /* ---------- 更新履歷 ---------- */
   .changelog {
-    padding: 32px 0 80px;
+    padding: 0 0 80px;
+  }
+
+  .changelog .wrap::before {
+    content: "";
+    display: block;
     border-top: 1px solid var(--line);
+    margin-bottom: 32px;
   }
 
   .section-title {
@@ -251,6 +288,29 @@
   <div class="wrap">
     <!-- 【改圖片】每張圖都用 class="thumbnail"，不需要id；新增圖片直接複製一行 <img> 貼上即可 -->
     <img src="image/boothcut_RGB.png" alt="無界無双無修羅" class="thumbnail">
+
+    <!-- 【改影片】把 VIDEO_ID 換成你的 YouTube 影片 ID -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/QMsswH1IdNs"
+        title="無界無双無修羅 紹介動画"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- 【改影片】把 VIDEO_ID 換成你的 YouTube 影片 ID -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/81EDCJQ4as4"
+        title="無界無双無修羅 紹介動画"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
     <img src="image/1minmushurai_1.jpg" alt="一分鐘無修羅" class="thumbnail">
     <img src="image/1minmushurai_2.jpg" alt="一分鐘無修羅" class="thumbnail">
     <img src="image/1minmushurai_3.jpg" alt="一分鐘無修羅" class="thumbnail">
@@ -326,6 +386,7 @@
     <div class="section-title">更新履歷 / Changelog</div>
     <!-- 【改更新履歷】在下面新增/修改 <li> 項目即可 -->
     <ul class="changelog-list">
+      <li><strong>2026.10.11</strong>更新遊戲流程影片</li>
       <li><strong>2026.10.06</strong>更新規則PDF</li>
       <li><strong>2026.09.18</strong>更新版面設計</li>
     </ul>
