@@ -117,7 +117,7 @@
     border: 0;
   }
 
-  }
+  
 
   /* ---------- 導覽列 ---------- */
   .nav-bar {
@@ -150,9 +150,17 @@
 
   /* ---------- 角色故事區 ---------- */
   .characters {
-    padding: 32px 0 40px;
-    border-top: 1px solid var(--line);
+    padding: 0 0 40px;
   }
+
+
+.characters .wrap::before {
+  content: "";
+  display: block;
+  border-top: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+
 
   .character-grid {
     display: grid;
@@ -190,8 +198,14 @@
 
   /* ---------- 更新履歷 ---------- */
   .changelog {
-    padding: 32px 0 80px;
+    padding: 0 0 80px;
+  }
+
+  .changelog .wrap::before {
+    content: "";
+    display: block;
     border-top: 1px solid var(--line);
+    margin-bottom: 32px;
   }
 
   .section-title {
@@ -251,12 +265,12 @@
 </head>
 <body>
 
-<!-- ============ 標題區 ============ 
+<!-- ============ 標題區 ============ -->
 <section class="hero">
   <div class="wrap">
    <h1>2026秋 両日 - Z007</h1> 
   </div>
-</section>-->
+</section>
 
 <!-- ============ 宣傳圖展示區 ============ -->
 <section class="showcase">
@@ -361,6 +375,7 @@
     <div class="section-title">更新履歴 / Changelog</div>
     <!-- 【改更新履歷】在下面新增/修改 <li> 項目即可 -->
     <ul class="changelog-list">
+      <li><strong>2026.10.11</strong>ゲームの流れを紹介する動画を追加</li>
       <li><strong>2026.10.06</strong>ルールPDFの訂正</li>
       <li><strong>2026.10.03</strong>ルールPDFの訂正・掲載場所を更新しました。</li>
       <li><strong>2026.09.18</strong>レイアウトを更新する</li>
