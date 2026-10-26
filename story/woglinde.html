@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沃克琳德 角色故事 - 無界無双無修羅</title>
+<style>
+  /* 沿用你首頁的極簡日式美學與色彩變數 */
+  :root {
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --ink-soft: #6b6459;
+    --card: #faf8f5;
+    --line: #e7e2da;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Noto Serif TC", "Songti TC", serif;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* 返回導覽列 */
+  .back-nav {
+    padding: 32px 0 16px;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 14px;
+    transition: color 0.15s ease;
+  }
+
+  .back-link:hover {
+    color: var(--ink);
+  }
+
+  /* 角色標頭區 */
+  .character-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .character-hero img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--line);
+  }
+
+  .character-info h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .character-info p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* 故事折疊清單區 */
+  .story-section {
+    padding: 32px 0 80px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  /* 單篇故事卡片（含收合設計） */
+  .story-item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.15s ease;
+  }
+
+  .story-item:hover {
+    border-color: var(--ink);
+  }
+
+  /* 故事標題列（點擊可展開） */
+  .story-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .story-title-group h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .story-subtitle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* 展開/收合的箭頭圖示 */
+  .story-arrow {
+    font-size: 14px;
+    color: var(--ink-soft);
+    transition: transform 0.2s ease;
+  }
+
+  /* 故事內文區（預設隱藏） */
+  .story-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    border-top: 1px solid transparent;
+    transition: max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    font-size: 15px;
+/* 加上這行，就能保留你原本打字時的 Enter 換行與段落 */
+  white-space: pre-line;
+  }
+
+  /* 當故事展開時的樣式 */
+  .story-item.active .story-content {
+    max-height: 30000px; /* 足夠容納文章高度的上限 */
+    padding: 20px;
+    border-top-color: var(--line);
+  }
+
+  .story-item.active .story-arrow {
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- 返回首頁 -->
+  <div class="back-nav">
+    <a href="../index.html" class="back-link">← 返回首頁</a>
+  </div>
+
+  <!-- 角色簡介 -->
+  <section class="character-hero">
+    <img src="../image/wogrinde.png" alt="沃克琳德">
+    <div class="character-info">
+      <h1>沃克琳德</h1>
+      <p>​使用脈衝波動術(Impuls-Welle)的戰鬥合成人，除了作為選手在鬥技場上戰鬥之外，也接受代理決鬥和暗殺的工作。</p>
+    </div>
+  </section>
+
+  <!-- 故事清單區（展開/收合） -->
+  <section class="story-section">
+    <div class="section-title">修羅文庫 / 角色故事集</div>
+
+    <!-- 故事 1 -->
+    <div class="story-item">
+      <div class="story-header" onclick="toggleStory(this)">
+        <div class="story-title-group">
+          <h3>萊茵黃金的動機</h3>
+          <p class="story-subtitle">音樂先到了。</p>
+        </div>
+        <div class="story-arrow">▼</div>
+      </div>
+      <div class="story-content">
+        <p>
+音樂先到了。
+
+哈根是房間裡最後一個知道的人。
+
+八十六樓的安全室沒有窗戶，三層複合裝甲把城市的霓虹隔絕在外。克勞斯・哈根坐在房間正中央的皮椅上，看著身邊十二名全副武裝的保鑣，在同一個瞬間停下了動作。有人抬頭看向天花板，有人轉頭看向牆壁，保鑣隊長的義眼快速縮放，尋找一個不存在的音源。
+
+「怎麼了？」
+
+沒有人回答他。哈根是純生身主義者，全身上下沒有一顆改造零件，這是他的信仰，也是他在這座城市裡最大的驕傲。他雇用改造人，但從不讓改造人碰觸自己的身體，所以他什麼都沒聽到——
+
+「……降E大調。」隊長開口，聲音乾澀，「低音提琴。是她。」
+
+
+–
+第一小節。
+
+–
+鬥技場的轉播裡，每一名登錄選手都有自己的主題曲。選手登場時，轉播系統會把旋律直接推送進觀眾的電子腦，讓數十萬人在同一個瞬間屏住呼吸。
+
+沃克琳德的情況比較麻煩。她的仿生尾巴在生成重力平台之前，會先釋放一段極低頻的預備脈衝。這段脈衝對純生身的人類毫無意義，但人工耳蝸和電子腦的聽覺處理器會把它誤判為聲音，再自作主張地補完。補完的素材，正是在媒體中播放過無數次、早已沉澱在快取深處的那段旋律──華格納《萊茵黃金》的前奏。一百三十六小節的降E大調，從河床最深處的低音開始，一層一層向上堆疊，水波推著水波，直到整條萊茵河都在流動。
+
+所以，聽得到，代表你身上有改造，而且認得她。聽得越清楚，代表她離你越近。完全聽不到的人，不是純生身，就是根本不知道自己惹上了誰。
+
+哈根兩者都是。
+
+–
+大門在高熱中融化。子彈毫不吝惜地灑向門口，但找不到應該擊中的敵人，空虛地將走道打成了蜂窩。
+
+第一個倒下的保鑣倒在離門最遠的角落。
+
+沒有爆炸，沒有槍響，他的護甲完好無缺，身上找不到任何傷口。他只是跪了下去，然後就再也沒有站起來。接著是第二個、第三個。金色殘跡像河面上碎開的陽光，在天花板、牆角、半空中一閃即逝。
+
+–
+低音之上，加入了第二層聲部。
+
+–
+「不要用眼睛找！」隊長大吼，「義眼的幀率跟不上她！」
+
+他關閉視覺，把所有運算資源轉移到聽覺處理器。看不見沒關係，只要能聽見就好。「用三角定位找出她的座標再飽和射擊，就算她再快也不可能──」
+
+隊長沒能說完。他算出的座標完全正確，但那是沃克琳德半秒前的位置。
+
+吋勁點在隊長的胸口。極短、極強的針狀重力場在一瞬間貫穿身體，在內臟深處留下肉眼看不見的奈米孔。不可逆性重力穿孔，在其他流派也被稱為脈衝鍛針功。這種傷不會流血，不會癒合，也無法被任何醫療用奈米機器修補。隊長倒下時，臉上還帶著解開謎題的表情。
+
+–
+法國號一支接著一支加入，水流變得湍急。
+
+–
+十二個保鑣，只剩下一個。
+
+最後一個男人站在哈根身前，從頭到尾沒有動過。他是全身義體的巨漢，比安全室的門還要高。他曾經在鬥技場上連續衛冕三屆，人們叫他法夫納，巨龍的法夫納。音樂開始的時候，他就關閉自己的聽覺，他知道音樂跟不上殺手的節奏，他不能依靠音樂作為殺手的嚮導。
+
+他不需要音樂指引他的方向。他用全身的重力感測器觸摸房間，感受每一片平台生成與崩解時，空間裡那一點點微小的扭曲。
+
+法夫納的拳頭砸進左側的空氣，生成到一半的萊茵黃金應聲碎裂。
+
+金光停了下來。
+
+殺手翻身落在房間的正中央，第一次露出了身影。銀白色的雙馬尾，黑紅色的頭冠，紅色長裙上繡著白色的百合花紋，機械尾巴在身後緩緩擺動，金色光環在尾端旋轉。
+
+她雙手合十，對著法夫納微微低頭。
+
+「沃克琳德。」
+
+聲音很輕，像是在交換名片。法夫納沉默地舉起雙拳，回了一個鬥技場式的禮。
+
+戰鬥重新開始。這次不再是一面倒的作業，而是一場互相試探、爭奪主導權的雙人舞。法夫納搶先打碎她即將踩上的平台，他聽不見音樂，卻每一拳都打在拍子上。沃克琳德在空中第一次失去了落腳點，第二次，第三次。巨漢的拳頭擦過她的身體，她借力彈開，落在房間的另一端。
+
+她看著法夫納，做出了決定。
+
+「失禮了。」
+
+喀。她的指尖在腰側一按，紅色的裙擺應聲脫落。沃克琳德輕輕跳躍，弦樂的波紋一口氣漲滿了整個房間。法夫納震驚地發現萊茵黃金同時從每一處長出來，天花板、牆角、自己的腳邊，每一寸空間都被壓出了凹陷。每一個方向都有她，每一個方向都沒有她。
+
+他停了下來。
+
+連續衛冕三屆的男人站在原地，雙拳垂下。耳朵是他自己關掉的，現在，連皮膚也聽不見了。他抬起拳頭，朝房間中央最嘈雜的地方揮出最後一拳。那裡什麼也沒有。
+
+沃克琳德倒立在他正上方的黃金平台上，雙掌對準巨漢的頭頂。
+
+「電漿波動拳。」
+
+超高頻電磁波在掌前聚焦，空氣被撕裂成電漿。藍白色的雷光從天花板直貫地板，安全室裡所有的照明同時爆裂。在黑暗降臨之前，哈根看見法夫納巨大的身軀被光柱貫穿，緩緩跪倒。
+
+–
+第一百三十六小節。
+
+–
+然後，房間裡只剩下兩個人。
+
+–
+沃克琳德走到哈根面前，雙手合十，和面對法夫納時同樣微微頷首。
+
+「哈根先生，」她說，「我受託前來取您的性命。」
+
+哈根張了張嘴，想說點什麼──金錢、權力、交易，那些在這座城市裡無往不利的東西。但最後他只問了一句話。
+
+「……音樂，真的有音樂嗎？」
+
+沃克琳德歪了歪頭，似乎很訝異被問到這個問題。
+
+「我不知道，」她說，「我聽不到。」
+
+吋勁點在哈根的胸口。
+
+–
+關於沃克琳德，城市裡流傳著各種說法。有人說她是鬥技場的寶石，有人說她是代理決鬥的最後手段，也有人說深夜裡聽見降E大調的低音時，最好的做法是立刻寫好遺書。這些說法大致上都是真的。
+
+比較少人知道的是，沃克琳德本人從來沒聽過那首歌。她的聽覺處理器會把尾巴的脈衝當成自身雜訊過濾掉，就像人類聽不見自己血液流動的聲音。曾經有好事的記者把錄音放給她聽，她安靜地聽完了一百三十六小節，禮貌地點了點頭。
+
+「是首好曲子。」
+
+接著她問記者，這首歌是誰寫的，跟她有什麼關係。記者告訴她，前奏結束之後，歌劇裡第一個開口唱歌的，就是一位名叫沃克琳德的萊茵少女。
+
+關於回答，她苦惱了一會兒，然後終於滿意地雙手合十，緊靠胸口。
+
+「那麼，我會努力不要搶了節奏。」
+
+–
+沃克琳德撿起地上的裙擺，貼上腰側。
+
+喀。
+
+裙擺回到原位，遮住了雙腳與尾巴。她確認了一下裙擺的長度，走出大樓。城市的某處，又有一個電子腦捕捉到了微弱的低音。河床深處的降E大調，第一小節。
+
+
+
+
+
+</p>
+
+      </div>
+    </div>
+
+
+
+    <!-- 若未來有第三篇、第四篇，直接複製上面整塊 <div class="story-item">...</div> 貼上即可 -->
+
+  </section>
+</div>
+
+<script>
+  function toggleStory(headerElement) {
+    const item = headerElement.parentElement;
+    
+    // 如果希望每次只能展開一篇（其他的自動收合），可以把下面這段註解拿掉：
+    /*
+    document.querySelectorAll('.story-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+    */
+
+    // 切換當前故事的展開/收合狀態
+    item.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
